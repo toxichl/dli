@@ -1,3 +1,5 @@
+var chalk = require('chalk')
+
 /**
  * log help of current program
  * @param program
@@ -20,7 +22,7 @@ function config(conf) {
   console.log('   ', chalk.bgYellow(conf.title), ' ')
   console.log()
   conf.items.forEach(function (item) {
-    console.log(chalk.green(`    # ${item.name}`), chalk.magenta(`\t${item.content}`))
+    console.log(chalk.green(`    # ${item.name}`), chalk.magenta('\t'+`${item.choice}`))
   })
 }
 

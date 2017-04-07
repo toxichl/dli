@@ -13,6 +13,10 @@ var shell = require('shelljs')
 var log = require('../src/log.js')
 var define = require('../src/define.js')
 var CONFIG = require('./CONFIG.js').init
+var exec = require('child_process').exec
+var fork = require('child_process').fork
+var spawn = require('child_process').spawn
+var keypress = require('keypress')
 
 /**
  * Initial Config.
@@ -22,66 +26,96 @@ define.usage(program, CONFIG.usage)
 define.help(program, CONFIG.help)
 log.help(program, process)
 
+
 /**
- * Settings.
+ * Parse arguements.
  */
 
 var frameWork = program.args[0]
 var template = program.args[1]
 var rawName = program.args[2]
 
-console.log(frameWork)
-
 // Whether the file name is defined
 var inPlace = !rawName || rawName === '.'
 
-// If there is no given file name, then set the directory name for the default value
-var name = inPlace ? path.relative('../', process.cwd()) : rawName
+// If there is no given file name,
+// then set the directory name for the default value
+var name = inPlace ?
+  path.relative('../', process.cwd()) : rawName
 
+// the actual command that will execute
 var cmdStr = `${frameWork} init ${template} ${name}`
+console.log(cmdStr)
 
-log.config({
-  title: 'Your configuration:',
-  items: [
-    {
-      name: 'Framework',
-      conent: frameWork
-    },
-    {
-      name: 'Template',
-      conent: template
-    },
-    {
-      name: 'Project Name',
-      conent: name
-    },
-    {
-      name: 'Actual exec',
-      conent: cmdStr
-    },
-  ]
-})
+var env = process.env;
 
 var cmdOption = {
-  cwd: process.cwd()
+  cwd: process.cwd(),
+  env: env,
+  stdio: ['pipe','pipe','pipe']
 }
 
-console.log(cmdOption)
+/**
+ * Execute.
+ */
 
 if (program.args.length !== 0) {
-  log()
-  if (shell.exec(cmdStr, cmdOption).code !== 0) {
-    shell.echo('Error: Git commit failed');
-    shell.exit(1);
-  } else {
-    console.log('Sussess')
-  }
-  // exec(cmdStr, cmdOption, function (error, stdout, stderr) {
-  //   if(error) {
+  logConf()
+  // fork('mkdir ddd', cmdOption, function (error, stdout, stderr) {
+  //   if (error) {
   //     console.log(error)
   //   }
-  //   console.log('Success')
+  //   console.log(stdout)
+  //   console.log(stderr)
   // })
+  
+  // var child = shell.exec(cmdStr, cmdOption)
+  //
+  // if (child.code !== 0) {
+  //   shell.echo('Error: failed');
+  //   shell.exit(1);
+  // } else {
+  //   console.log('Sussess')
+  // }
+  //
+  // process.resume();
+  // process.stdin.on('data', function(data) {
+  //   console.log(data)
+  //   process.stdout.write(data)
+  //   child.send(data)
+  // })
+  //
+  // child.stdin.on('data', function (data) {
+  //   console.log(data)
+  // })
+  //
+  
+  // create a child process
+  var child = exec(cmdStr, cmdOption)
+  
+  child.stdout.pipe(process.stdout)
+  
+  process.stdin.on('keypress', function (ch, key) {
+    console.log('got "keypress"', key);
+    // if (key && key.ctrl && key.name == 'c') {
+    //   process.stdin.pause();
+    // }
+  });
+  
+  process.stdin.on('data', function (data) {
+    child.stdin.write(
+      new Buffer(
+        data.toString().replace(/\n/, '')
+      )
+    )
+  })
+  
+  // child.stdout.on('data', function (data) {
+  //   console.log(data)
+  // })
+  //
+  
+
   
 }
 
@@ -159,3 +193,28 @@ if (program.args.length !== 0) {
 //     })
 //   })
 // }
+
+
+function logConf() {
+  log.config({
+    title: 'Your configuration:',
+    items: [
+      {
+        name: 'Framework',
+        choice: frameWork
+      },
+      {
+        name: 'Template Name',
+        choice: template
+      },
+      {
+        name: 'Project Name',
+        choice: name
+      },
+      {
+        name: 'Actual exec',
+        choice: cmdStr
+      },
+    ]
+  })
+}
