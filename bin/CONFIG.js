@@ -1,4 +1,7 @@
 module.exports = {
+  vuecli: {
+    path: '../node_modules/vue-cli/package.json'
+  },
   init: {
     usage: {
       title: '<template-name> [project-name]',

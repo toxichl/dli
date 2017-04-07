@@ -1,14 +1,14 @@
 {
-  "name": "xcli",
+  "name": "dli",
   "version": "0.0.1",
   "description": "A fast and simple front-end cli",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "xcli": "bin/xcli.js",
-    "xcli-tool": "bin/xcli-tool.js",
-    "xcli-init": "bin/xcli-init.js"
+    "xcli": "bin/dli.js",
+    "xcli-tool": "bin/dli-tool.js",
+    "xcli-init": "bin/dli-init.js"
   },
   "author": "toxichl",
   "license": "MIT",

@@ -19,7 +19,6 @@ function loginfo() {
 }
 
 
-
 if (program.args.length !== 0) {
   loginfo()
 }

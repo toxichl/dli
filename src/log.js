@@ -12,6 +12,15 @@ function help(program, process) {
   if (program.args.length === 0) return program.help()
 }
 
+function nul() {
+  console.log()
+}
+
+
+function base(content) {
+  console.log('  ', content)
+}
+
 /**
  * log config
  * @param conf
@@ -19,15 +28,17 @@ function help(program, process) {
 function config(conf) {
   // Log configuration
   console.log()
-  console.log('   ', chalk.bgYellow(conf.title), ' ')
+  base(chalk.bgYellow(conf.title) + ' ')
   console.log()
   conf.items.forEach(function (item) {
-    console.log(chalk.green(`    # ${item.name}`), chalk.magenta('\t'+`${item.choice}`))
+    console.log(chalk.green(`    # ${item.name}`), chalk.magenta('\t' + `${item.choice}`))
   })
 }
 
 
 module.exports = {
+  nul,
+  base,
   help,
   config
 }
