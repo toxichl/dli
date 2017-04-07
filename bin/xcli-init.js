@@ -26,6 +26,8 @@ var frameWork = program.args[0]
 var template = program.args[1]
 var rawName = program.args[2]
 
+console.log(frameWork)
+
 // Whether the file name is defined
 var inPlace = !rawName || rawName === '.'
 

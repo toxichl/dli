@@ -6,6 +6,7 @@
  */
 function help(program, process) {
   program.parse(process.argv)
+  // the process will be killed after this command
   if (program.args.length === 0) return program.help()
 }
 
