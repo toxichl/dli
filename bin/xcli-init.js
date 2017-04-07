@@ -11,7 +11,9 @@ var path = require('path')
 var chalk = require('chalk')
 var shell = require('shelljs')
 var log = require('../src/log.js')
-var config = require('../src/config.js')
+var define = require('../src/define.js')
+var CONFIG = require('./CONFIG.js').init
+
 
 /**
  * Usage.
@@ -27,19 +29,9 @@ program
  */
 
 var __help__ = {
-  title: 'Examples',
-  helps: [
-    {
-      desc: 'create a vue project with an official template',
-      exam: 'xcli init vue webpack my-project'
-    },
-    {
-      desc: 'create a new project straight from a github template',
-      exam: 'xcli init username/repo my-project'
-    }
-  ]
+
 }
-config.chelp(program, __help__)
+define.help(program, __help__)
 
 log.lhelp(program, process)
 

@@ -1,6 +1,14 @@
 var chalk = require('chalk')
 
-function chelp(program, opts) {
+function usage(program, opts) {
+  program
+    .usage(opts.title)
+  opts.options.forEach(function (opt) {
+    program.option(opt.desc, opt.exam)
+  })
+}
+
+function help(program, opts) {
   program.on('--help', function () {
     console.log(chalk.bgBlue(`  ${opts.title}`))
     console.log()
@@ -13,5 +21,6 @@ function chelp(program, opts) {
 }
 
 module.exports = {
-  chelp
+  usage,
+  help
 }
