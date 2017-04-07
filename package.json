@@ -7,8 +7,8 @@
   },
   "bin": {
     "xcli": "bin/xcli.js",
-    "xcli-init": "bin/xcli-init",
-    "xcli-tool": "bin/xcli-tool"
+    "xcli-tool": "bin/xcli-tool.js",
+    "xcli-init": "bin/xcli-init.js"
   },
   "author": "toxichl",
   "license": "MIT",

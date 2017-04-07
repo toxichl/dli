@@ -26,10 +26,12 @@ module.exports = {
   tool: {
     usage: {
       title: '<toolName>',
-      options: {
-        desc: 'i -gitignore',
-        exam: 'add a gitignore'
-      },
+      options: [
+        {
+          desc: 'i -gitignore',
+          exam: 'add a gitignore'
+        }
+      ]
     },
     
   }
