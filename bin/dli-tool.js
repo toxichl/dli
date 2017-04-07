@@ -18,7 +18,6 @@ function loginfo() {
   console.log(tootName)
 }
 
-
 if (program.args.length !== 0) {
   loginfo()
 }

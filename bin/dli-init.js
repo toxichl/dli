@@ -61,7 +61,7 @@ if (program.args.length !== 0) {
     stdio: ['pipe', 'pipe', 'pipe']
   }
   
-  logConf()
+  logCfg()
   
   // create a child process
   child = exec(cmd, cmdOpt)
@@ -79,12 +79,12 @@ if (program.args.length !== 0) {
   child.stdout.on('data', function (data) {
     if (data.match(/\/\/v/)) {
       log.nul()
-      log.base(`Successfully created by vue-cli ${vuecliVer}`)
+      log.base(`Successfully created by vue-cli ${vuecliVer || ''}`)
       process.exit()
     }
   })
   
-  function logConf() {
+  function logCfg() {
     log.config({
       title: 'Your configuration:',
       items: [
