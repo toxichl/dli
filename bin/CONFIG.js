@@ -33,6 +33,14 @@ module.exports = {
         }
       ]
     },
-    
+    help: {
+      title: 'Examples',
+      helps: [
+        {
+          desc: 'create a gitignore file',
+          exam: 'xcli tool i'
+        }
+      ]
+    }
   }
 }

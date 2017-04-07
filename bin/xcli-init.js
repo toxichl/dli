@@ -16,7 +16,6 @@ var CONFIG = require('./CONFIG.js').init
 
 define.usage(program, CONFIG.usage)
 define.help(program, CONFIG.help)
-
 log.help(program, process)
 
 /**

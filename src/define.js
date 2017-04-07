@@ -1,5 +1,10 @@
 var chalk = require('chalk')
 
+/**
+ * define usage of current program
+ * @param program
+ * @param opts
+ */
 function usage(program, opts) {
   program
     .usage(opts.title)
@@ -8,6 +13,11 @@ function usage(program, opts) {
   })
 }
 
+/**
+ * define help of current program
+ * @param program
+ * @param opts
+ */
 function help(program, opts) {
   program.on('--help', function () {
     console.log(chalk.bgBlue(`  ${opts.title}`))

@@ -1,5 +1,8 @@
 /**
- * Help.
+ * log help of current program
+ * @param program
+ * @param process
+ * @returns {*|{title, helps}}
  */
 function help(program, process) {
   program.parse(process.argv)
