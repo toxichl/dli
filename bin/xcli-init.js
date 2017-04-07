@@ -15,25 +15,11 @@ var define = require('../src/define.js')
 var CONFIG = require('./CONFIG.js').init
 
 
-/**
- * Usage.
- */
 
-program
-  .usage('<template-name> [project-name]')
-  .option('-c, --clone', 'use git clone')
+define.usage(program, CONFIG.usage)
+define.help(program, CONFIG.help)
 
-
-/**
- * Help.
- */
-
-var __help__ = {
-
-}
-define.help(program, __help__)
-
-log.lhelp(program, process)
+log.help(program, process)
 
 /**
  * Settings.
