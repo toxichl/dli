@@ -28,7 +28,7 @@ module.exports = {
       title: '<toolName>',
       options: [
         {
-          desc: 'i -gitignore',
+          desc: 'g -gitignore',
           exam: 'add a gitignore'
         }
       ]

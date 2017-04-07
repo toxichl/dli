@@ -10,16 +10,16 @@ define.usage(program, CONFIG.usage)
 define.help(program, CONFIG.help)
 log.help(program, process)
 
-console.log(program.args)
-
 var toolDir = path.resolve(__dirname, '../tool')
 var tootName = program.args
 
-function log() {
+function loginfo() {
   console.log(toolDir)
   console.log(tootName)
 }
 
-if (program.args.length === 0) {
-  log()
+
+
+if (program.args.length !== 0) {
+  loginfo()
 }

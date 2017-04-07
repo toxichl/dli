@@ -14,6 +14,10 @@ var log = require('../src/log.js')
 var define = require('../src/define.js')
 var CONFIG = require('./CONFIG.js').init
 
+/**
+ * Initial Config.
+ */
+
 define.usage(program, CONFIG.usage)
 define.help(program, CONFIG.help)
 log.help(program, process)
@@ -36,18 +40,27 @@ var name = inPlace ? path.relative('../', process.cwd()) : rawName
 
 var cmdStr = `${frameWork} init ${template} ${name}`
 
-// Log configuration
-function log() {
-  console.log()
-  console.log('   ', chalk.bgYellow(' Your configuration:'))
-  console.log()
-  console.log(chalk.green('    # Framework'), chalk.magenta(`\t${frameWork}`))
-  console.log(chalk.green('    # Template'), chalk.magenta(`\t\t${template}`))
-  console.log(chalk.green('    # Project Name'), chalk.magenta(`\t${name}`))
-  console.log()
-  console.log(chalk.green('    # Actual exec '), chalk.magenta(`\t${cmdStr}`))
-}
-
+log.config({
+  title: 'Your configuration:',
+  items: [
+    {
+      name: 'Framework',
+      conent: frameWork
+    },
+    {
+      name: 'Template',
+      conent: template
+    },
+    {
+      name: 'Project Name',
+      conent: name
+    },
+    {
+      name: 'Actual exec',
+      conent: cmdStr
+    },
+  ]
+})
 
 var cmdOption = {
   cwd: process.cwd()
