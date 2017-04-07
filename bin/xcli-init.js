@@ -14,8 +14,6 @@ var log = require('../src/log.js')
 var define = require('../src/define.js')
 var CONFIG = require('./CONFIG.js').init
 
-
-
 define.usage(program, CONFIG.usage)
 define.help(program, CONFIG.help)
 
@@ -27,8 +25,6 @@ log.help(program, process)
 
 var frameWork = program.args[0]
 var template = program.args[1]
-// 说明没有使用官方模板
-var hasSlash = template.indexOf('/') > -1
 var rawName = program.args[2]
 
 // Whether the file name is defined

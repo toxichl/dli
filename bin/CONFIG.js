@@ -25,10 +25,10 @@ module.exports = {
   },
   tool: {
     usage: {
-      title: '<template-name> [project-name]',
+      title: '<toolName>',
       options: {
-        desc: '-c, --clone',
-        exam: 'use git clone'
+        desc: 'i -gitignore',
+        exam: 'add a gitignore'
       },
     },
     
