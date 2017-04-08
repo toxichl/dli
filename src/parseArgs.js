@@ -10,7 +10,7 @@ function vue(process, args) {
     
     if (args.length === 0 || args.length > 3) {
         log.nul()
-        log.base('Unexpected number of arguements')
+        log.base('Unexpected length of arguements')
         log.base('S%', args.join(' '))
         process.exit()
     }
@@ -32,10 +32,8 @@ function vue(process, args) {
     else {
         
         inPlace = !args[2] || args[2] === '.'
-        
         projName = inPlace ?
             path.relative('../', process.cwd()) : args[2]
-        
         cmd = `${args[0]} init ${args[1]} ${projName}`
     }
     
@@ -69,29 +67,36 @@ function vue(process, args) {
 }
 
 function react(process, args) {
+    
+    var inPlace, projName, cmd
+    
     if (args.length === 0 || args.length > 2) {
         log.nul()
-        log.base('Unexpected number of arguements')
+        log.base('Unexpected length of arguements')
         log.base('S%', args.join(' '))
         log.nul()
         log.base('Example: ')
-        log.base('S%', args.join('dli init react my-app'))
+        log.base('S%', 'dli init react my-app')
         process.exit()
     }
-}
-
-
-function logReactCfg() {
+    
+    inPlace = !args[1] || args[1] === '.'
+    
+    projName = inPlace ?
+        path.relative('../', process.cwd()) : args[1]
+    
+    cmd = `create-react-app ${name}`;
+    
     log.config({
         title: 'Your configuration:',
         items: [
             {
                 name: 'Framework',
-                choice: arg1
+                choice: 'react'
             },
             {
                 name: 'Project Name',
-                choice: name
+                choice: projName
             },
             {
                 name: 'Actual exec',
@@ -99,6 +104,12 @@ function logReactCfg() {
             },
         ]
     })
+    
+    return {
+        projName,
+        cmd
+    }
+    
 }
 
 

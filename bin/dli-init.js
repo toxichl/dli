@@ -55,23 +55,16 @@ if (program.args.length !== 0) {
         case 'vue':
             
             parseResult = parseArgs.vue(process, program.args)
-            name = parseResult.projName
-            cmd = parseResult.cmd
-            
             break;
         
         case 'react':
             
             parseResult = parseArgs.react(process, program.args)
-            inPlace = !arg2 || arg2 === '.'
-            
-            name = inPlace ?
-                path.relative('../', process.cwd()) : arg2
-            
-            cmd = `create-react-app ${name}`;
-            logReactCfg();
             break;
     }
+    
+    name = parseResult.projName
+    cmd = parseResult.cmd
     
     // create a child process
     child = exec(cmd, {
@@ -102,7 +95,6 @@ if (program.args.length !== 0) {
         process.exit()
     })
     
-
     
 }
 

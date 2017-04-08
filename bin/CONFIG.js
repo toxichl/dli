@@ -10,6 +10,9 @@ module.exports = {
                 'simple'
             ]
         },
+        react: {
+            
+        }
     },
     init: {
         usage: {
