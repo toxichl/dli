@@ -61,6 +61,10 @@ if (program.args.length !== 0) {
             
             parseResult = parseArgs.react(process, program.args)
             break;
+    
+        case 'ng':
+        
+        
     }
     
     name = parseResult.projName
