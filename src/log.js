@@ -16,13 +16,13 @@ function nul() {
     console.log()
 }
 
-function base(content, args) {
+function base(content) {
     var split = content.split('S%')
     var result = ''
     for (var i = 0, l = split.length; i < l; i++) {
         result += split[i]
         if (i !== l - 1) {
-            result += chalk.yellow(args[i])
+            result += chalk.yellow(arguments[i + 1])
         }
     }
     console.log('  ', result)

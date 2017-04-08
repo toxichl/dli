@@ -10,7 +10,8 @@ function vue(process, args) {
     
     if (args.length === 0 || args.length > 3) {
         log.nul()
-        log.base('Unexpected number of arguements\n' + JSON.stringify(args))
+        log.base('Unexpected number of arguements')
+        log.base('S%', args.join(' '))
         process.exit()
     }
     
@@ -22,24 +23,43 @@ function vue(process, args) {
     
     if (!isContain(templates, args[1])) {
         log.nul()
-        log.base('Unsupported S% template "S%", The supported templates are as follows:', ['vue', args[1]])
+        log.base('Unsupported S% template "S%", The supported templates are as follows:', 'vue', args[1])
         log.nul()
         log.array(templates)
         process.exit()
     }
     
     else {
-        // Whether the file name is undefined
+        
         inPlace = !args[2] || args[2] === '.'
         
-        // If there is no given file name,
-        // then set the directory name for the default value
         projName = inPlace ?
             path.relative('../', process.cwd()) : args[2]
         
-        // actual cmd
-        cmd = `${args[1]} init ${args[2]} ${projName}`
+        cmd = `${args[0]} init ${args[1]} ${projName}`
     }
+    
+    log.config({
+        title: 'Your configuration:',
+        items: [
+            {
+                name: 'Framework',
+                choice: 'vue'
+            },
+            {
+                name: 'Template Name',
+                choice: args[1]
+            },
+            {
+                name: 'Project Name',
+                choice: projName
+            },
+            {
+                name: 'Actual exec',
+                choice: cmd
+            },
+        ]
+    })
     
     return {
         projName,
@@ -48,6 +68,41 @@ function vue(process, args) {
     
 }
 
+function react(process, args) {
+    if (args.length === 0 || args.length > 2) {
+        log.nul()
+        log.base('Unexpected number of arguements')
+        log.base('S%', args.join(' '))
+        log.nul()
+        log.base('Example: ')
+        log.base('S%', args.join('dli init react my-app'))
+        process.exit()
+    }
+}
+
+
+function logReactCfg() {
+    log.config({
+        title: 'Your configuration:',
+        items: [
+            {
+                name: 'Framework',
+                choice: arg1
+            },
+            {
+                name: 'Project Name',
+                choice: name
+            },
+            {
+                name: 'Actual exec',
+                choice: cmd
+            },
+        ]
+    })
+}
+
+
 module.exports = {
-    vue
+    vue,
+    react
 }

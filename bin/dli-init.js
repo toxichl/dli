@@ -20,7 +20,7 @@ var vuecliVer,
     inPlace,
     name,
     cmd,
-    cmdOpt,
+    parseResult,
     child
 
 /* Get version of vue-cli.
@@ -54,13 +54,15 @@ if (program.args.length !== 0) {
         
         case 'vue':
             
-            name = parseArgs.vue(process, program.args).projName
-            cmd = parseArgs.vue(process, program.args).cmd
+            parseResult = parseArgs.vue(process, program.args)
+            name = parseResult.projName
+            cmd = parseResult.cmd
             
             break;
         
         case 'react':
             
+            parseResult = parseArgs.react(process, program.args)
             inPlace = !arg2 || arg2 === '.'
             
             name = inPlace ?
@@ -100,49 +102,7 @@ if (program.args.length !== 0) {
         process.exit()
     })
     
-    function logVueCfg() {
-        log.config({
-            title: 'Your configuration:',
-            items: [
-                {
-                    name: 'Framework',
-                    choice: arg1
-                },
-                {
-                    name: 'Template Name',
-                    choice: arg2
-                },
-                {
-                    name: 'Project Name',
-                    choice: name
-                },
-                {
-                    name: 'Actual exec',
-                    choice: cmd
-                },
-            ]
-        })
-    }
-    
-    function logReactCfg() {
-        log.config({
-            title: 'Your configuration:',
-            items: [
-                {
-                    name: 'Framework',
-                    choice: arg1
-                },
-                {
-                    name: 'Project Name',
-                    choice: name
-                },
-                {
-                    name: 'Actual exec',
-                    choice: cmd
-                },
-            ]
-        })
-    }
+
     
 }
 
