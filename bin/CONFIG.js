@@ -11,7 +11,10 @@ module.exports = {
             ]
         },
         react: {
-            
+        
+        },
+        ng: {
+        
         }
     },
     init: {

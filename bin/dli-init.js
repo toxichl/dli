@@ -61,11 +61,14 @@ if (program.args.length !== 0) {
             
             parseResult = parseArgs.react(process, program.args)
             break;
-    
+        
         case 'ng':
-        
-        
+            
+            parseResult = parseArgs.ng(process, program.args)
+            break;
     }
+    
+    console.log(parseResult)
     
     name = parseResult.projName
     cmd = parseResult.cmd

@@ -28,6 +28,20 @@ function base(content) {
     console.log('  ', result)
 }
 
+
+function error(content) {
+    var split = content.split('S%')
+    var result = ''
+    for (var i = 0, l = split.length; i < l; i++) {
+        result += split[i]
+        if (i !== l - 1) {
+            result += chalk.red(arguments[i + 1])
+        }
+    }
+    console.log('  ', result)
+}
+
+
 function array(infoArr) {
     infoArr.forEach(function (item) {
         console.log(chalk.green(`    # ${item}`))
@@ -54,6 +68,7 @@ function config(conf) {
 
 module.exports = {
     nul,
+    error,
     base,
     help,
     config,

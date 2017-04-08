@@ -1,0 +1,83 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p, blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    margin:0;
+    padding:0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    outline: none;
+}
+body {
+    font: 12px/2  Microsoft YaHei,Arial;
+    color: #444;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+audio,canvas,video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+input,select,textarea {
+    font-size:100%;
+    outline: none;
+}
+table {
+    border-collapse:collapse;border-spacing:0;
+}
+th {
+    text-align:inherit;
+}
+fieldset,img {
+    border:0;
+}
+iframe {
+    display:block;
+}
+abbr,acronym {
+    border:0;font-variant:normal;
+}
+address,caption,cite,code,dfn,em,th,var {
+    font-style:normal;
+    font-weight:500;
+}
+ol,ul {
+    list-style:none;
+}
+i {
+    font-style: normal;
+}
+caption,th {
+    text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size:100%;
+    font-weight:500;
+}
+a {
+    text-decoration:none;
+    cursor: pointer;
+    color: #444;
+}
+a:hover {
+    color: #444;
+}
+.fn-clear:after {
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:" ";
+    clear:both;
+    height:0;
+}
+.fn-clear {
+    zoom:1;
+}
+.fn-text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.fn-tal{ text-align:left;}
+.fn-tar{ text-align:right;}
+.fn-tac{ text-align:center;}

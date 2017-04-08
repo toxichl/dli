@@ -1,0 +1,8 @@
+<div class="photos row">
+    <div class="item col-md-4" ng-repeat="photo in vm.photos">
+        <a ui-sref="album.detail({id: $index})">
+            <img class="img-responsive" ng-src="{{ photo.url }}">
+            <p class="author">by {{ photo.author }}</p>
+        </a>
+    </div>
+</div>

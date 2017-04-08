@@ -70,6 +70,12 @@ function react(process, args) {
     
     var inPlace, projName, cmd
     
+    if (args[0] !== 'react') {
+        log.nul()
+        log.base('Unexpected arguement\n' + args[0])
+        process.exit()
+    }
+    
     if (args.length === 0 || args.length > 2) {
         log.nul()
         log.base('Unexpected length of arguements')
@@ -85,7 +91,7 @@ function react(process, args) {
     projName = inPlace ?
         path.relative('../', process.cwd()) : args[1]
     
-    cmd = `create-react-app ${name}`;
+    cmd = `create-react-app ${projName}`;
     
     log.config({
         title: 'Your configuration:',
@@ -113,7 +119,61 @@ function react(process, args) {
 }
 
 
+function ng(process, args) {
+    
+    var inPlace, projName, cmd
+    
+    if (args[0] !== 'ng') {
+        log.nul()
+        log.base('Unexpected arguement\n' + args[0])
+        process.exit()
+    }
+    
+    if (args.length === 0 || args.length > 2) {
+        log.nul()
+        log.base('Unexpected length of arguements')
+        log.base('S%', args.join(' '))
+        log.nul()
+        log.base('Example: ')
+        log.base('S%', 'dli init ng my-app')
+        process.exit()
+    }
+    
+    inPlace = !args[1] || args[1] === '.'
+    
+    projName = inPlace ?
+        path.relative('../', process.cwd()) : args[1]
+    
+    cmd = `ng new ${projName}`
+    
+    log.config({
+        title: 'Your configuration:',
+        items: [
+            {
+                name: 'Framework',
+                choice: 'angular'
+            },
+            {
+                name: 'Project Name',
+                choice: projName
+            },
+            {
+                name: 'Actual exec',
+                choice: cmd
+            },
+        ]
+    })
+    
+    return {
+        projName,
+        cmd
+    }
+    
+}
+
+
 module.exports = {
     vue,
-    react
+    react,
+    ng
 }

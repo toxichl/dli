@@ -1,0 +1,189 @@
+.side-bar {
+    height: 560px;
+    background: #fff;
+}
+.side-bar li a {
+    display: block;
+    color: #000;
+    padding: 8px 0 8px 16px;
+}
+.side-bar li a:hover {
+    background-color: #eee;
+    color:#444;
+}
+.side-bar li .selected {
+    background-color: #eee;
+}
+.user .top{
+    height: 40px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+}
+.user .tabs {
+    background-color: #fff;
+}
+.user .tabs li {
+    float: left;
+    text-align: center;
+    border-right: 1px solid #ddd;
+}
+.user .tab {
+    display: inline-block;
+    min-width: 80px;
+    line-height: 40px;
+    padding: 0 20px;
+    color: #666;
+}
+.user .tab:hover {
+    background-color: #f4f4f4;
+    color: #0088cc;
+}
+.user .tab.selected {
+    color: #fff;
+    background-color: #00a1f2;
+}
+.user .wrapper-list {
+    background-color: #fff;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, .05);
+    padding-bottom: 10px;
+}
+.user .wrapper-header {
+    height: 42px;
+    line-height: 42px;
+    padding-left: 18px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #d3d3d3;
+}
+.user .module-content {
+    padding: 0 18px;
+}
+.user .number {
+    color: #ff9833;
+}
+.user .icon-switch {
+    display: inline-block;
+    float: right;
+}
+.user .icon-switch .thumb-view,
+.user .icon-switch .info-view {
+    display: inline-block;
+    width: 40px;
+    height: 42px;
+    text-align: center;
+}
+.user icon {
+    display: inline-block;
+    width: 14px;
+    height: 15px;
+    background: url("../../assert/images/icon_switch.png") no-repeat;
+}
+.user .icon-thumb {
+    background-position:  -42px 0;
+}
+.user .icon-info {
+    background-position:  -56px 0px;
+}
+.user .icon-switch .thumb-view.active,
+.user .icon-switch .info-view.active {
+    background-color: #fff;
+    border-left: 1px solid #d3d3d3;
+    border-right: 1px solid #d3d3d3;
+}
+.user .icon-switch .thumb-view.active .icon-thumb {
+    background-position:  -42px -20px;
+}
+.user .icon-switch .info-view.active .icon-info {
+    background-position: -56px -20px;
+}
+.module {
+    margin: 10px 0;
+    padding: 10px 18px 1px;
+    background-color: #fff;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, .05);
+}
+.module .module-name {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ddd;
+}
+.module .title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    padding: 0 20px;
+    float: left;
+    border-bottom: 2px solid #00a1f2;
+}
+.module .more {
+    float: right;
+    color: #666;
+}
+/* 全部tab e*/
+.thumb-list {
+    height: 488px;
+}
+.detail-list {
+    height: 508px;
+}
+.thumb-list .items {
+    overflow: hidden;
+    margin: 20px 0;
+}
+.thumb-list .item {
+    width: 180px;
+    height: 276px;
+    margin-right: 17px;
+    float: left;
+    border: 1px solid #ddd;
+}
+.thumb-list .item img {
+    width: 178px;
+    height: 135px;
+    padding-left: 1px;
+}
+.thumb-list .item-info {
+    padding: 10px 5px;
+    line-height: 24px;
+}
+.thumb-list .name {
+    font-size: 14px;
+    color: #0088cc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.thumb-list .address {
+    font-size: 12px;
+    color: #666;
+}
+.thumb-list .item-info .time,
+.thumb-list .item-info .desc {
+    font-size: 12px;
+    color: #999;
+}
+.detail-list table {
+    width: 100%;
+}
+.detail-list thead {
+    background-color: #f3f3f3;
+}
+.detail-list thead th {
+    text-align: center;
+}
+.detail-list tr{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-bottom: 1px solid #d3d3d3;
+}
+.detail-list tr a{
+    color: #666;
+}
+.detail-list tbody .name {
+    text-align: left;
+    padding-left: 10px;
+}
+.detail-list tbody tr:hover {
+    color: #0088cc;
+    background-color: #f9f9f9;
+}

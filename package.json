@@ -1,17 +1,15 @@
 {
   "name": "dli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A fast and simple front-end cli",
   "scripts": {
     "test": "devtool test/test.js --watch"
   },
   "bin": {
     "dli": "bin/dli.js",
-    "dli tool": "bin/dli-tool.js",
-    "dli init": "bin/dli-init.js",
-    "vue-init": "node_modules/vue-cli/bin/vue-init",
-    "create-react-app": "node_modules/create-react-app/index.js",
-    "ng": "node_modules/@angular/cli/bin/ng"
+    "dli-tool": "bin/dli-tool.js",
+    "dli-init": "bin/dli-init.js",
+    "dli-new": "bin/dli-new.js"
   },
   "author": "toxichl",
   "license": "MIT",

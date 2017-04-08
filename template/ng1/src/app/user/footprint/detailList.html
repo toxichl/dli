@@ -1,0 +1,28 @@
+<div class="detail-list">
+    <table>
+        <thead>
+            <tr>
+                <th width="15%">名称</th>
+                <th width="15%">时间</th>
+                <th width="15%">地点</th>
+                <th width="55%">描述</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in vm.citys">
+                <td>
+                    <div class="name">{{item.name}}</div>
+                </td>
+                <td>
+                    <div>{{item.time}}</div>
+                </td>
+                <td>
+                    <div>{{item.address}}</div>
+                </td>
+                <td>
+                    <div class="fn-tal fn-text-overflow">{{item.desc}}</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

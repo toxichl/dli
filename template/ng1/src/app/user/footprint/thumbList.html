@@ -1,0 +1,16 @@
+<!-- 资源列表list -->
+<div class="thumb-list">
+    <ul class="items">
+        <li class="item" ng-repeat="item in vm.citys">
+            <a href="###">
+                <img ng-src="{{item.src}}" alt="{{item.name}}"/>
+                <div class="item-info">
+                    <p class="name">{{item.name}}</p>
+                    <p class="address">{{item.address}}</p>
+                    <p class="time">{{item.time}}</p>
+                    <div class="desc">{{item.desc}}</div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
