@@ -1,4 +1,16 @@
 module.exports = {
+  supports: {
+    vue: [
+      'webpack',
+      'webpack-simple',
+      'browserify',
+      'browserify-simple',
+      'simple'
+    ],
+    react: [
+    
+    ]
+  },
   vuecli: {
     path: '../node_modules/vue-cli/package.json'
   },
