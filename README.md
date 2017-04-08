@@ -19,7 +19,7 @@ A intergrated Front-end CLI
 - JS
 	- Vue (Use `vue-cli`)
 	- React (Use `create-react-app`)
-	- Angular
+	- Angular (Use `angular-cli`)
 	- JQuery
 	
 - CSS
