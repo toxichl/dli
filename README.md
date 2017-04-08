@@ -3,7 +3,7 @@ A intergrated Front-end CLI
 
 ## What's New?
 
-### `0.0.4` / 2017-4-8
+### `0.0.4` / 2017-4-9
 - use `dli tool gitignore` to Generate `.gitignore`, 
 - use `dli tool index` to Generate `index.html`, 
 - use `dli tool webpack` to Generate `webpack.config.js`
