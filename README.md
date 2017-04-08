@@ -4,7 +4,7 @@ A intergrated Front-end CLI
 ## What's New?
 
 - `0.0.3` / 2017-4-8
-- Join support for [angular/angular-cli](https://github.com/angular/angular-cli)
+- Join support for [angular-cli](https://github.com/angular/angular-cli)
 
 
 - `0.0.3` / 2017-4-8
