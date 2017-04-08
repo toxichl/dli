@@ -3,12 +3,14 @@
   "version": "0.0.2",
   "description": "A fast and simple front-end cli",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "devtool test/test.js --watch"
   },
   "bin": {
     "dli": "bin/dli.js",
     "dli tool": "bin/dli-tool.js",
-    "dli init": "bin/dli-init.js"
+    "dli init": "bin/dli-init.js",
+    "vue-init": "node_modules/vue-cli/bin/vue-init",
+    "create-react-app": "node_modules/create-react-app/index.js"
   },
   "author": "toxichl",
   "license": "MIT",

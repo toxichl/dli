@@ -3,8 +3,12 @@ A intergrated Front-end CLI
 
 ## What's New?
 
+- `0.0.3` / 2017-4-8
+- Join support for `create-react-app`
+
+
 - `0.0.2` / 2017-4-8
-- Join support for vue-cli
+- Join support for `vue-cli`
 
 ## Supports
 

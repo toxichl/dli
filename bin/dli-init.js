@@ -10,11 +10,13 @@ var config = require('./CONFIG.js')
 var exec = require('child_process').exec
 var exists = require('fs').existsSync
 var _ = require('lodash')
+var parseArgs = require('../src/parseArgs.js')
+var isContain = require('../src/utils.js').isContain
 
 var vuecliVer,
-    frameWork,
-    template,
-    rawName,
+    arg1,
+    arg2,
+    arg3,
     inPlace,
     name,
     cmd,
@@ -23,8 +25,8 @@ var vuecliVer,
 
 /* Get version of vue-cli.
  ======================== */
-if (exists(config.vuecli.path)) {
-    vueCliVer = require(config.vuecli.path).version
+if (exists(config.sups.vue.path)) {
+    vueCliVer = require(config.sups.vue.path).version
 }
 
 
@@ -39,44 +41,42 @@ log.help(program, process)
  =================== */
 if (program.args.length !== 0) {
     
-    frameWork = program.args[0]
-    template = program.args[1]
-    rawName = program.args[2]
+    arg1 = program.args[0]
+    arg2 = program.args[1]
+    arg3 = program.args[2]
     
     // check if support is available
-    if (_.findIndex(
-            Object.keys(config.supports),
-            key => key === frameWork) === -1
-    ) {
-        throw new Error(`Unknown frameWork ${frameWork}`)
+    if (!isContain(Object.keys(config.sups), arg1)) {
+        throw new Error(`Unknown arguement ${arg1}`)
     }
     
-    // vue-cli config
-    if (frameWork === 'vue') {
+    switch (arg1) {
         
-        // Whether the file name is defined
-        inPlace = !rawName || rawName === '.'
+        case 'vue':
+            
+            name = parseArgs.vue(process, program.args).projName
+            cmd = parseArgs.vue(process, program.args).cmd
+            
+            break;
         
-        // If there is no given file name,
-        // then set the directory name for the default value
-        name = inPlace ?
-            path.relative('../', process.cwd()) : rawName
-        
-        cmd = `${frameWork} init ${template} ${name}`
-        
+        case 'react':
+            
+            inPlace = !arg2 || arg2 === '.'
+            
+            name = inPlace ?
+                path.relative('../', process.cwd()) : arg2
+            
+            cmd = `create-react-app ${name}`;
+            logReactCfg();
+            break;
     }
     
-    
-    cmdOpt = {
+    // create a child process
+    child = exec(cmd, {
         cwd: process.cwd(),
         env: process.env,
         stdio: ['pipe', 'pipe', 'pipe']
-    }
-    
-    logCfg()
-    
-    // create a child process
-    child = exec(cmd, cmdOpt)
+    })
     
     child.stdout.pipe(process.stdout)
     
@@ -88,25 +88,49 @@ if (program.args.length !== 0) {
         )
     })
     
-    child.stdout.on('data', function (data) {
-        if (data.match(/\/\/v/)) {
-            log.nul()
-            log.base(`Successfully created by vue-cli ${vuecliVer || ''}`)
-            process.exit()
-        }
+    // child.stdout.on('data', function (data) {
+    //     if (data.match(/\/\/v/)) {
+    //
+    //     }
+    // })
+    
+    child.on('close', function () {
+        log.nul()
+        log.base(`Successfully created by vue-cli ${vuecliVer || ''}`)
+        process.exit()
     })
     
-    function logCfg() {
+    function logVueCfg() {
         log.config({
             title: 'Your configuration:',
             items: [
                 {
                     name: 'Framework',
-                    choice: frameWork
+                    choice: arg1
                 },
                 {
                     name: 'Template Name',
-                    choice: template
+                    choice: arg2
+                },
+                {
+                    name: 'Project Name',
+                    choice: name
+                },
+                {
+                    name: 'Actual exec',
+                    choice: cmd
+                },
+            ]
+        })
+    }
+    
+    function logReactCfg() {
+        log.config({
+            title: 'Your configuration:',
+            items: [
+                {
+                    name: 'Framework',
+                    choice: arg1
                 },
                 {
                     name: 'Project Name',

@@ -7,18 +7,31 @@ var chalk = require('chalk')
  * @returns {*|{title, helps}}
  */
 function help(program, process) {
-  program.parse(process.argv)
-  // the process will be killed after this command
-  if (program.args.length === 0) return program.help()
+    program.parse(process.argv)
+    // the process will be killed after this command
+    if (program.args.length === 0) return program.help()
 }
 
 function nul() {
-  console.log()
+    console.log()
 }
 
+function base(content, args) {
+    var split = content.split('S%')
+    var result = ''
+    for (var i = 0, l = split.length; i < l; i++) {
+        result += split[i]
+        if (i !== l - 1) {
+            result += chalk.yellow(args[i])
+        }
+    }
+    console.log('  ', result)
+}
 
-function base(content) {
-  console.log('  ', content)
+function array(infoArr) {
+    infoArr.forEach(function (item) {
+        console.log(chalk.green(`    # ${item}`))
+    })
 }
 
 /**
@@ -26,19 +39,20 @@ function base(content) {
  * @param conf
  */
 function config(conf) {
-  // Log configuration
-  console.log()
-  base(chalk.bgYellow(conf.title) + ' ')
-  console.log()
-  conf.items.forEach(function (item) {
-    console.log(chalk.green(`    # ${item.name}`), chalk.magenta('\t' + `${item.choice}`))
-  })
+    // Log configuration
+    console.log()
+    base(chalk.bgYellow(conf.title) + ' ')
+    console.log()
+    conf.items.forEach(function (item) {
+        console.log(chalk.green(`    # ${item.name}`), chalk.magenta('\t' + `${item.choice}`))
+    })
 }
 
 
 module.exports = {
-  nul,
-  base,
-  help,
-  config
+    nul,
+    base,
+    help,
+    config,
+    array
 }
