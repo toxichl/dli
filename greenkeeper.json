@@ -1,0 +1,17 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "template/ng1/package.json",
+        "template/ng2/package.json",
+        "template/react/package.json",
+        "template/vue#1#Simple/package.json",
+        "template/vue#1/package.json",
+        "template/vue#2#Simple/package.json",
+        "template/vue#2/package.json",
+        "vue-cli/package.json"
+      ]
+    }
+  }
+}
