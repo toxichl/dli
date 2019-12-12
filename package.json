@@ -3,7 +3,9 @@
   "version": "0.0.4",
   "description": "A fast and simple front-end cli",
   "scripts": {
-    "test": "devtool test/test.js --watch"
+    "test": "devtool test/test.js --watch",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "bin": {
     "dli": "bin/dli.js",
@@ -21,12 +23,14 @@
     "keypress": "^0.2.1",
     "lodash": "^4.17.4",
     "shelljs": "^0.7.7",
-    "vue-cli": "^2.8.1"
+    "vue-cli": "^2.8.1",
+    "snyk": "^1.258.2"
   },
   "engines": {
     "node": ">=4.0.0"
   },
   "devDependencies": {
     "cross-env": "^1.0.7"
-  }
+  },
+  "snyk": true
 }
