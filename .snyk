@@ -1,0 +1,52 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - lodash:
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - vue-cli > async > lodash:
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > html-webpack-plugin > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > node-sass > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > webpack-merge > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - vue-cli > inquirer > lodash:
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > extract-text-webpack-plugin > async > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > portfinder > async > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > webpack > async > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > node-sass > sass-graph > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > webpack-dev-server > http-proxy-middleware > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > webpack-dev-server > portfinder > async > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > istanbul-instrumenter-loader > istanbul-lib-instrument > babel-types > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > istanbul-instrumenter-loader > istanbul-lib-instrument > babel-generator > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > istanbul-instrumenter-loader > istanbul-lib-instrument > babel-traverse > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > istanbul-instrumenter-loader > istanbul-lib-instrument > babel-template > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > node-sass > gaze > globule > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > istanbul-instrumenter-loader > istanbul-lib-instrument > babel-generator > babel-types > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > istanbul-instrumenter-loader > istanbul-lib-instrument > babel-traverse > babel-types > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > istanbul-instrumenter-loader > istanbul-lib-instrument > babel-template > babel-types > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > istanbul-instrumenter-loader > istanbul-lib-instrument > babel-template > babel-traverse > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
+    - '@angular/cli > istanbul-instrumenter-loader > istanbul-lib-instrument > babel-template > babel-traverse > babel-types > lodash':
+        patched: '2020-05-01T06:45:53.677Z'
